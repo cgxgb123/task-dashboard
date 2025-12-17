@@ -1,6 +1,9 @@
-import { Task, TaskFilter } from "../types/index.ts";
+import { Task, TaskFilterOptions } from "../types/index.ts";
 
-export const filterTasks = (tasks: Task[], filters: TaskFilter): Task[] => {
+export const filterTasks = (
+  tasks: Task[],
+  filters: TaskFilterOptions
+): Task[] => {
   return tasks.filter((task) => {
     if (filters.status && task.status !== filters.status) return false;
     if (filters.priority && task.priority !== filters.priority) return false;
