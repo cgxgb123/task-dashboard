@@ -1,4 +1,4 @@
-export type taskStatus = "to do" | "in progress" | "done";
+export type taskStatus = "to-do" | "in-progress" | "done";
 export type taskPriority = "meh" | "drop-everything" | "everything-is-on-fire";
 
 export interface Task {
@@ -6,7 +6,7 @@ export interface Task {
   title: string;
   description?: string;
   status: taskStatus;
-  priority: taskPriority;
+  priority?: taskPriority;
   createdAt: string;
 }
 
@@ -16,7 +16,7 @@ export interface TaskFormData {
   priority: taskPriority;
 }
 
-export interface TaskFilter {
+export interface TaskFilterOptions {
   status?: taskStatus;
   priority?: taskPriority;
   search?: string;

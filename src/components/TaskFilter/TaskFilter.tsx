@@ -1,7 +1,7 @@
-import { TaskFilter } from "../../types";
+import { TaskFilterOptions } from "../../types";
 
 interface TaskFilterProps {
-  onChange: (filters: TaskFilter) => void;
+  onChange: (filters: TaskFilterOptions) => void;
 }
 
 const TaskFilter = ({ onChange }: TaskFilterProps) => {
@@ -11,7 +11,7 @@ const TaskFilter = ({ onChange }: TaskFilterProps) => {
         <select
           className="form-select"
           onChange={(e) =>
-            onChange({ status: e.target.value as TaskFilter["status"] })
+            onChange({ status: e.target.value as TaskFilterOptions["status"] })
           }
         >
           <option value="">All Statuses</option>
@@ -25,7 +25,9 @@ const TaskFilter = ({ onChange }: TaskFilterProps) => {
         <select
           className="form-select"
           onChange={(e) =>
-            onChange({ priority: e.target.value as TaskFilter["priority"] })
+            onChange({
+              priority: e.target.value as TaskFilterOptions["priority"],
+            })
           }
         >
           <option value="">All Priorities</option>
