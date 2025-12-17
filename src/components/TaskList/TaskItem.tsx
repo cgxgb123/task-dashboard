@@ -8,9 +8,9 @@ const TaskItem = ({ task, onDelete, onStatusChange }: any) => (
       <div>
         <button
           className="btn btn-sm btn-success me-2"
-          onClick={() => onStatusChange(task.id, "completed")}
+          onClick={() => onStatusChange(task.id, "done")}
         >
-          Success
+          &#10004;
         </button>
         <button
           className="btn btn-sm btn-danger"

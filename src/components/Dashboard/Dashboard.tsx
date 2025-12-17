@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Task, TaskFilterOptions } from "../../types";
 import { filterTasks } from "../../utils/taskUtils.ts";
-
 import TaskForm from "../TaskForm/TaskForm";
 import TaskFilter from "../TaskFilter/TaskFilter.tsx";
 import TaskList from "../TaskList/TaskList.tsx";
