@@ -27,3 +27,8 @@ export interface TaskListProps {
   onDelete: (id: string) => void;
   onStatusChange: (id: string, status: taskStatus) => void;
 }
+
+export interface ThemeToggleProps {
+  theme: "light" | "dark";
+  toggleTheme: () => void;
+}
