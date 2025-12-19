@@ -1,73 +1,93 @@
-# React + TypeScript + Vite
+# Task Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Light Mode](./src/assets/image.png)
+![Dark Mode](./src/assets/image2.png)
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A responsive, interactive landing page for a fictional banking and financial services company. Users can view a call-to-action modal designed to simulate a real pre-qualification application experience, including form entry, staged loading UI, and mock API response handling.
 
-## React Compiler
+## Table of Contents
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [Technologies Used](#technologiesused)
+- [Features](#features)
+- [Future Features](#nextsteps)
+- [Deployed App](#deployment)
+- [About the Author](#author)
+- [Reflection](#reflection)
 
-## Expanding the ESLint configuration
+## <a name="technologiesused"></a>Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React
+- TypeScript
+- JavaScript
+- HTML
+- CSS
+- Bootstrap
+- Vite
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## <a name="features"></a> Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Task Management
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Create new tasks using a controlled form
+- Delete existing tasks
+- Update task status dynamically
+- Persist tasks using browser localStorage
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Filtering & Search
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Filter tasks by status
+- Filter tasks by priority
+- Search tasks by title
+- Combine multiple filters simultaneously
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### UI / UX
+
+- Responsive layout using Bootstrap
+- Clear visual hierarchy for tasks
+- Status indicators for task progress
+- User-friendly form validation feedback
+
+### Future Features
+
+- Implement drag-and-drop task reordering
+- Improve accessibility (ARIA labels, keyboard navigation)
+- Add task editing functionality
+
+## <a name="nextsteps"></a>Future Features
+
+- Implement drag-and-drop task reordering
+- Improve accessibility (ARIA labels, keyboard navigation)
+- Add task editing functionality
+
+## <a name="deployment"></a>Deployed Link
+
+[Github Pages](https://github.com/cgxgb123/task-dashboard)
+
+- You can view the repository here:
+  [Github](https://cgxgb123.github.io/task-dashboard/)
+- If unable to view please go live locally through VS Code
+
+## <a name="author"></a>About The Authors
+
+- **[Christian Blunt](https://www.linkedin.com/in/christiangblunt/)**
+
+## Works Cited:
+
+- https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries/React_interactivity_events_state
+- https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries/React_components
+
+## <a name="reflection"></a>Reflection
+
+### 1. How I Implemented React and TypeScript Features
+
+I used React functional components along with hooks such as `useState` and `useEffect` to manage application state and side effects. TypeScript interfaces and union types were implemented to define the structure of tasks, filter options, and component props. This ensured type safety across the application and reduced runtime errors by enforcing consistent task statuses and priorities during development.
+
+### 2. Challenges Encountered and How I Overcame Them
+
+One of the main challenges was handling task status updates and filtering without causing unexpected behavior or application crashes. I initially encountered issues due to mismatched status values and improper component responsibilities. I resolved these problems by aligning all UI interactions with predefined TypeScript types and centralizing filtering logic in a utility function. Additionally, I ensured all state updates were performed immutably to maintain predictable React re-rendering.
+
+### 3. Approach to Component Composition and State Management
+
+I structured the application so that the `Dashboard` component serves as the single source of truth for shared state, including tasks and filters. Child components such as `TaskForm`, `TaskFilter`, and `TaskList` were designed to be focused and reusable, receiving data and callback functions through props. This approach allowed user interactions to flow upward in a controlled manner while keeping components loosely coupled and easy to maintain.
